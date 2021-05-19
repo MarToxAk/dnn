@@ -2,22 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "/api/hello",
-      "dest": "/api/hello.js"
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
     },
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
       "config": {
-        "serverFiles": ["package.json"]
+        "serverFiles": ["package.json", "api/**"]
       }
     }
   ],
   "routes": [
-    {
-      "src": "/api/hello",
-      "dest": "/api/hello.js"
-    },
     { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
     {
       "src": "/sw.js",
