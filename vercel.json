@@ -14,20 +14,6 @@
       }
     }
   ],
-  "rewrites": [
-    {
-        "source": "/api/sendText",
-        "destination": "http://127.0.0.1:8080/sendText"
-    },
-    {
-        "source": "/socket.io/",
-        "destination": "http://127.0.0.1:8080/socket.io/"
-    },
-    {
-        "source": "/api/database",
-        "destination": "https://spreadsheets.google.com/feeds/list/1jQDE_JBaNSRj3uMAkV02NGB95aRGGZOY3bbKQaqfRm8/1/public/basic?alt=json&pli=1"
-    }
-],
   "routes": [
     { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
     {
