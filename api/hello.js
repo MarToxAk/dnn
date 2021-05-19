@@ -1,7 +1,8 @@
 import express from 'express'
+const bodyParser = require('body-parser')
 
 const app = express()
-app.use(express.json())
+app.use(bodyParser.json())
 
 // It is important that the full path is specified here
 app.post('/api/hello', function(req, res) {
