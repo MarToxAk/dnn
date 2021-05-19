@@ -71,10 +71,11 @@ package-lock.json
 
 # Nuxt generate
 dist
-
+.vercel_cache
 # vuepress build output
 .vuepress/dist
-
+node_modules_dev
+node_modules_prod
 # Serverless directories
 .serverless
 

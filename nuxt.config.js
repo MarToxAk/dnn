@@ -65,5 +65,7 @@ export default {
         fs: 'empty'
       }
     }
-  }
+  },
+  serverMiddleware:
+    process.env.NODE_ENV === 'production' ? [] : ['~/api/hello.js'],
 }
