@@ -1,8 +1,7 @@
 import express from 'express'
-const bodyParser = require('body-parser')
 
 const app = express()
-app.use(bodyParser.json())
+app.use(express.json())
 
 // It is important that the full path is specified here
 app.post('/api/hello', function(req, res) {
@@ -10,7 +9,7 @@ app.post('/api/hello', function(req, res) {
   console.log(info)
   res
     .status(200)
-    .json({ info })
+    .json(info)
     .end()
 })
 
