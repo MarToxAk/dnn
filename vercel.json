@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "name": "my-mongodb-api",
+  "env": {
+      "MONGODB_URI": "@my-mongodb-uri",
+      "ASDA": "@my-mongodb-uri"
+  },
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": ["package.json"]
+      }
+    }
+  ],
+  "rewrites": [
+    {
+        "source": "/api/sendText",
+        "destination": "http://127.0.0.1:8080/sendText"
+    },
+    {
+        "source": "/socket.io/",
+        "destination": "http://127.0.0.1:8080/socket.io/"
+    },
+    {
+        "source": "/api/database",
+        "destination": "https://spreadsheets.google.com/feeds/list/1jQDE_JBaNSRj3uMAkV02NGB95aRGGZOY3bbKQaqfRm8/1/public/basic?alt=json&pli=1"
+    }
+],
+  "routes": [
+    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
+    {
+      "src": "/sw.js",
+      "dest": "/_nuxt/static/sw.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    },
+    { "src": "/(.*)", "dest": "/" }
+  ]
+}
